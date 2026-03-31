@@ -14,7 +14,7 @@ const exampleMessages = [
   "Let us schedule a quick meeting to align."
 ];
 
-export function rewriteMessage(input: string, tone: Tone): string {
+function rewriteMessage(input: string, tone: Tone): string {
   const cleaned = input.trim();
 
   switch (tone) {
@@ -80,12 +80,12 @@ export default function HomePage() {
   };
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[radial-gradient(circle_at_top,_#ede9fe_0%,_#eef2ff_35%,_#f8fafc_65%,_#ffffff_100%)] p-4 sm:p-6">
-      <section className="w-full max-w-[600px] space-y-6 rounded-2xl border border-slate-200/80 bg-white/90 p-6 shadow-lg shadow-indigo-100/60 backdrop-blur-sm sm:p-8">
-        <header className="space-y-2 text-center">
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900">Rewrite My Message ✨</h1>
-          <p className="text-sm text-slate-500">Make your message sound better instantly</p>
-          <p className="text-xs text-slate-400">Polished tone in one click, with clarity and confidence.</p>
+    <main className="flex min-h-screen items-center justify-center bg-[radial-gradient(circle_at_50%_32%,_rgba(99,102,241,0.28)_0%,_rgba(99,102,241,0)_40%),radial-gradient(circle_at_80%_16%,_rgba(168,85,247,0.22)_0%,_rgba(168,85,247,0)_36%),linear-gradient(145deg,_#0a0e18_0%,_#0f172a_44%,_#09090b_100%)] p-4 sm:p-6">
+      <section className="relative isolate w-full max-w-[600px] space-y-7 rounded-2xl border border-white/15 bg-black/45 p-7 shadow-2xl shadow-indigo-950/40 backdrop-blur-xl before:pointer-events-none before:absolute before:inset-0 before:rounded-2xl before:bg-[radial-gradient(circle_at_top,_rgba(129,140,248,0.14),_transparent_52%)] sm:p-9">
+        <header className="space-y-2.5 text-center">
+          <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Rewrite My Message ✨</h1>
+          <p className="text-sm text-slate-200">Make your message sound better instantly</p>
+          <p className="text-xs text-slate-400/90">Polished tone in one click, with clarity and confidence.</p>
         </header>
 
         <MessageInput value={message} onChange={setMessage} maxLength={MAX_CHARS} />
@@ -95,7 +95,7 @@ export default function HomePage() {
           <button
             type="button"
             onClick={onUseExample}
-            className="rounded-lg border border-dashed border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-600 transition duration-300 hover:-translate-y-0.5 hover:border-slate-400 hover:bg-slate-100 active:translate-y-0"
+            className="rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-100 shadow-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-105 hover:border-indigo-300/40 hover:bg-white/10 hover:shadow-md hover:shadow-indigo-500/25 active:translate-y-0"
           >
             Random example 💡
           </button>
@@ -106,7 +106,7 @@ export default function HomePage() {
             type="button"
             disabled={!canRewrite}
             onClick={onRewrite}
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-slate-800 hover:shadow-lg hover:shadow-slate-300/50 active:translate-y-0 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none disabled:opacity-70"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 via-violet-500 to-purple-500 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-900/60 ring-1 ring-white/10 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-xl hover:shadow-violet-500/40 active:scale-[0.99] active:translate-y-0 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:translate-y-0 disabled:hover:shadow-lg disabled:opacity-70"
           >
             {isLoading ? (
               <>
@@ -117,7 +117,7 @@ export default function HomePage() {
               "Rewrite"
             )}
           </button>
-          {error ? <p className="text-sm text-rose-500">{error}</p> : null}
+          {error ? <p className="text-sm text-rose-400">{error}</p> : null}
         </div>
 
         <OutputBox input={message.trim()} output={rewritten} hasCopied={hasCopied} onCopy={onCopy} />

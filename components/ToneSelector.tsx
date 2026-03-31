@@ -16,7 +16,7 @@ const toneOptions: Array<{ value: Tone; label: string }> = [
 export function ToneSelector({ selectedTone, onSelectTone }: ToneSelectorProps) {
   return (
     <div className="space-y-2">
-      <p className="text-sm font-medium text-slate-700">Choose a tone</p>
+      <p className="text-sm font-medium text-slate-200">Choose a tone</p>
       <div className="flex flex-wrap gap-2">
         {toneOptions.map((tone) => {
           const isActive = selectedTone === tone.value;
@@ -25,10 +25,10 @@ export function ToneSelector({ selectedTone, onSelectTone }: ToneSelectorProps) 
               key={tone.value}
               type="button"
               onClick={() => onSelectTone(tone.value)}
-              className={`rounded-full border px-3.5 py-2 text-sm font-medium transition duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-sm active:scale-[0.98] ${
+              className={`rounded-full border px-3.5 py-2 text-sm font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-105 hover:shadow-md active:scale-[0.98] ${
                 isActive
-                  ? "border-slate-900 bg-slate-900 text-white shadow-md shadow-slate-300/50"
-                  : "border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
+                  ? "border-transparent bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg shadow-violet-500/35 ring-1 ring-white/15"
+                  : "border-white/15 bg-white/[0.06] text-slate-100 hover:border-white/25 hover:bg-white/[0.10]"
               }`}
             >
               {tone.label}
